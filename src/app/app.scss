@@ -1,0 +1,35 @@
+@use './shared' as shared;
+
+.app-sidenav-container {
+  height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
+  background: transparent;
+}
+
+.app-sidenav {
+  width: 260px;
+  background: var(--surface);
+  padding-top: var(--gap-md);
+
+  .sidenav-nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 14px 20px;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+
+      &.active {
+        color: var(--primary-500);
+        background: var(--primary-50);
+      }
+    }
+  }
+}
+
+.app-main {
+  min-height: calc(100vh - var(--header-height) - 200px);
+  padding: 0;
+}

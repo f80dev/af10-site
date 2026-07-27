@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Réalisations</h1>
+  <p class="intro">
+    AF10 intervient sur trois familles de réalisations&nbsp;: les missions clients,
+    les produits réutilisables et les briques techniques. Filtrez par catégorie.
+  </p>
+
+  <mat-chip-listbox class="filters" [value]="activeCategory()" (change)="setCategory($any($event).value)">
+    <mat-chip-option *ngFor="let c of categories" [value]="c" [selected]="activeCategory() === c">
+      {{ c === 'all' ? 'Toutes' : labels[c] }}
+    </mat-chip-option>
+  </mat-chip-listbox>
+
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let p of visible()"
+      [title]="p.title"
+      [summary]="p.summary"
+      [icon]="'folder_open'">
+      <p class="meta">
+        <span class="status status-{{p.status}}">{{
+          p.status === 'client' ? 'Mission client' :
+          p.status === 'product' ? 'Produit' : 'Prototype'
+        }}</span>
+        · <strong>{{labels[p.category]}}</strong> · {{p.sector}}
+      </p>
+      <h4>Le besoin</h4>
+      <p>{{p.problem}}</p>
+      <h4>La réponse</h4>
+      <p>{{p.solution}}</p>
+      <h4>Bénéfices</h4>
+      <ul>
+        <li *ngFor="let b of p.benefits">{{b}}</li>
+      </ul>
+      <a mat-button color="primary" [routerLink]="['/realisations', p.slug]">
+        Voir la fiche détaillée
+        <mat-icon>arrow_forward</mat-icon>
+      </a>
+    </app-expandable-card>
+  </div>
+</div>

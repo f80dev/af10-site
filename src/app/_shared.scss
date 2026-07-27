@@ -1,0 +1,102 @@
+// ============================================================
+// Shared patterns — AF10
+//
+// All reusable design patterns live here. Consumers use
+// @extend %name (or @include mixin-name($args)) so we never
+// duplicate the same rule across component files.
+// ============================================================
+
+// ------------------------------------------------------------
+// Page container
+// ------------------------------------------------------------
+%page-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--gap-lg);
+}
+
+// ------------------------------------------------------------
+// Section block — vertical rhythm
+// ------------------------------------------------------------
+%section {
+  padding: var(--gap-xl) 0;
+}
+
+%section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--gap-md);
+}
+
+// ------------------------------------------------------------
+// Cards
+// ------------------------------------------------------------
+%card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--gap-lg);
+  transition: transform .2s ease, box-shadow .2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(33, 74, 103, .08);
+  }
+}
+
+// ------------------------------------------------------------
+// Buttons
+// ------------------------------------------------------------
+%primary-btn {
+  @extend %card;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover { background: var(--primary-700); color: white; }
+}
+
+%ghost-btn {
+  @extend %primary-btn;
+  background: transparent;
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+
+  &:hover {
+    background: var(--primary-50);
+    color: var(--primary-700);
+  }
+}
+
+// ------------------------------------------------------------
+// Chips
+// ------------------------------------------------------------
+%chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  font-size: .85rem;
+  font-weight: 500;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+// ------------------------------------------------------------
+// Container helpers
+// ------------------------------------------------------------
+%row { display: flex; flex-wrap: wrap; gap: var(--gap-md); }
+%col { display: flex; flex-direction: column; gap: var(--gap-md); }
+%center { display: flex; align-items: center; justify-content: center; }
+%between { display: flex; align-items: center; justify-content: space-between; }

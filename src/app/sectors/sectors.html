@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Secteurs d'intervention</h1>
+  <p class="intro">
+    AF10 intervient là où les processus sont spécifiques et où la donnée est centrale.
+    Cliquez sur un secteur pour voir les problématiques traitées et les réalisations associées.
+  </p>
+
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let s of items"
+      [title]="s.title"
+      [summary]="s.summary"
+      [icon]="s.icon">
+      <h4>Problématiques</h4>
+      <ul>
+        <li *ngFor="let p of s.problems">{{p}}</li>
+      </ul>
+      <h4>Réalisations associées</h4>
+      <div class="chips">
+        <span class="chip" *ngFor="let r of s.projects">{{r}}</span>
+      </div>
+    </app-expandable-card>
+  </div>
+</div>

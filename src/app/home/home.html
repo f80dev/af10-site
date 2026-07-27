@@ -1,0 +1,101 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Des outils métiers qui travaillent vraiment pour vous</h1>
+    <p class="hero-sub">
+      AF10 conçoit et intègre des applications web, des automatisations et des assistants IA
+      adaptés à vos processus, vos données et vos utilisateurs.
+    </p>
+    <div class="hero-actions">
+      <a mat-flat-button color="primary" routerLink="/realisations">Découvrir nos réalisations</a>
+      <a mat-stroked-button routerLink="/contact">Parler de votre projet</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="container">
+  <h2 class="section-title">Ce que nous faisons</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let s of services"
+      [title]="s.title"
+      [summary]="s.summary"
+      [icon]="s.icon">
+      <p>
+        Selon votre organisation, nous intervenons sur tout ou partie :
+      </p>
+      <ul>
+        <li *ngIf="s.icon === 'apps'">Back-offices, portails, tableaux de bord, outils internes, workflows</li>
+        <li *ngIf="s.icon === 'hub'">Google Workspace, APIs métier, données Office, services cloud</li>
+        <li *ngIf="s.icon === 'auto_awesome'">Planning, documents, exports, synchronisation, automatisation web</li>
+        <li *ngIf="s.icon === 'psychology'">Analyse, recommandation, génération de réponses, RAG, aide à la décision</li>
+      </ul>
+    </app-expandable-card>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="container">
+  <h2 class="section-title">Quelques réalisations</h2>
+  <p class="section-intro">Cliquez sur une carte pour voir le contexte et la réponse apportée.</p>
+
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let p of featured"
+      [title]="p.title"
+      [summary]="p.summary"
+      [icon]="'folder_open'">
+      <p class="ec-tag"><strong>{{labels[p.category]}}</strong> · {{p.sector}}</p>
+      <h4>Le besoin</h4>
+      <p>{{p.problem}}</p>
+      <h4>La réponse</h4>
+      <p>{{p.solution}}</p>
+      <a mat-button color="primary" [routerLink]="['/realisations', p.slug]">
+        Voir la fiche détaillée
+        <mat-icon>arrow_forward</mat-icon>
+      </a>
+    </app-expandable-card>
+  </div>
+
+  <div class="see-all">
+    <a mat-stroked-button routerLink="/realisations">Toutes les réalisations</a>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="container">
+  <h2 class="section-title">Pourquoi AF10</h2>
+  <div class="cards-grid">
+    <app-expandable-card title="Compréhension métier"
+                          summary="Une solution utile commence par les usages, pas par la technologie."
+                          icon="track_changes">
+      <p>Nous prenons le temps de comprendre vos processus, vos utilisateurs et vos contraintes avant de proposer une solution.</p>
+    </app-expandable-card>
+    <app-expandable-card title="Intégration pragmatique"
+                          summary="Nous valorisons vos outils et données existants."
+                          icon="link">
+      <p>Plutôt que de tout réécrire, nous nous connectons à ce qui fonctionne déjà : Google Workspace, logiciels métier, données internes.</p>
+    </app-expandable-card>
+    <app-expandable-card title="IA orientée résultats"
+                          summary="L'IA est utilisée lorsqu'elle simplifie réellement le travail."
+                          icon="auto_awesome">
+      <p>Recommandation, analyse, génération de réponses : nous appliquons l'IA aux endroits où elle apporte une vraie valeur.</p>
+    </app-expandable-card>
+    <app-expandable-card title="Réalisation de bout en bout"
+                          summary="Du cadrage au déploiement, avec une vision cohérente du projet."
+                          icon="build">
+      <p>AF10 intervient sur l'ensemble : cadrage, design, développement, intégration, déploiement, évolution.</p>
+    </app-expandable-card>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <h2>Vous avez un processus complexe à simplifier ?</h2>
+  <p>Échangeons sur vos outils, vos données et les tâches que vous aimeriez automatiser.</p>
+  <div class="cta-actions">
+    <a mat-flat-button color="primary" routerLink="/contact">Décrire mon projet</a>
+    <a mat-stroked-button routerLink="/contact">Prendre contact</a>
+  </div>
+</section>

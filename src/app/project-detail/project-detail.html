@@ -1,0 +1,59 @@
+<div class="container" *ngIf="project() as p; else notFound">
+  <a routerLink="/realisations" class="back-link">
+    <mat-icon>arrow_back</mat-icon> Toutes les réalisations
+  </a>
+
+  <header class="head">
+    <span class="cat">{{labels[p.category]}}</span>
+    <h1>{{p.title}}</h1>
+    <p class="sector">{{p.sector}}</p>
+    <p class="status status-{{p.status}}">
+      {{ p.status === 'client' ? 'Mission client' :
+         p.status === 'product' ? 'Produit réutilisable' : 'Prototype / exploration' }}
+    </p>
+  </header>
+
+  <section class="block">
+    <h2>Le besoin</h2>
+    <p>{{p.problem}}</p>
+  </section>
+
+  <section class="block">
+    <h2>La solution</h2>
+    <p>{{p.solution}}</p>
+  </section>
+
+  <section class="block">
+    <h2>Bénéfices</h2>
+    <ul>
+      <li *ngFor="let b of p.benefits">{{b}}</li>
+    </ul>
+  </section>
+
+  <section class="block" *ngIf="p.technologies?.length">
+    <h2>Technologies</h2>
+    <div class="chips">
+      <span class="chip" *ngFor="let t of p.technologies">{{t}}</span>
+    </div>
+  </section>
+
+  <section class="block" *ngIf="p.integrations?.length">
+    <h2>Intégrations</h2>
+    <div class="chips">
+      <span class="chip" *ngFor="let i of p.integrations">{{i}}</span>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2>Ce type de projet vous concerne ?</h2>
+    <a mat-flat-button color="primary" routerLink="/contact">Parlons-en</a>
+  </section>
+</div>
+
+<ng-template #notFound>
+  <div class="container">
+    <h1>Projet introuvable</h1>
+    <p>Cette réalisation n'existe pas ou a été retirée.</p>
+    <a mat-stroked-button routerLink="/realisations">Retour aux réalisations</a>
+  </div>
+</ng-template>

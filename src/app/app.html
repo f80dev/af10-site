@@ -1,0 +1,27 @@
+<app-header (menuToggle)="toggleMenu()"></app-header>
+
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="app-sidenav"
+    [opened]="mobileMenuOpen()"
+    (closedStart)="closeMenu()"
+    mode="over"
+    position="end">
+    <nav class="sidenav-nav" (click)="closeMenu()">
+      <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+      <a mat-list-item routerLink="/realisations" routerLinkActive="active">Réalisations</a>
+      <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
+      <a mat-list-item routerLink="/secteurs" routerLinkActive="active">Secteurs</a>
+      <a mat-list-item routerLink="/a-propos" routerLinkActive="active">À propos</a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <main class="app-main">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

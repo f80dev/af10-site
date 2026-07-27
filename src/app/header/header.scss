@@ -1,0 +1,65 @@
+@use '../shared' as shared;
+
+.header-toolbar {
+  @extend %between;
+  height: var(--header-height) !important;
+  background: var(--surface);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--gap-lg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+
+  .brand-mark {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-500);
+    letter-spacing: 1px;
+  }
+
+  .brand-text {
+    font-size: .9rem;
+    color: var(--text-mute);
+  }
+}
+
+.nav-desktop {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  margin-right: var(--gap-md);
+
+  a {
+    color: var(--text) !important;
+    font-weight: 500;
+
+    &.active {
+      color: var(--primary-500) !important;
+      background: var(--primary-50);
+    }
+  }
+}
+
+.cta-btn {
+  background: var(--primary-500) !important;
+  color: white !important;
+}
+
+.menu-btn { display: none; }
+
+@media (max-width: 900px) {
+  .nav-desktop, .cta-btn { display: none; }
+  .menu-btn { display: inline-flex; }
+  .brand-text { display: none; }
+}

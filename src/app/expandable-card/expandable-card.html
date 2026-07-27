@@ -1,0 +1,16 @@
+<div class="ec" [class.open]="open()">
+  <div class="ec-head" (click)="toggle()" tabindex="0" (keyup.enter)="toggle()">
+    <mat-icon *ngIf="icon" class="ec-icon">{{icon}}</mat-icon>
+    <div class="ec-text">
+      <h3 class="ec-title">{{title}}</h3>
+      <p class="ec-summary" *ngIf="!open()">{{summary}}</p>
+    </div>
+    <button mat-icon-button class="ec-toggle" [attr.aria-label]="open() ? 'Réduire' : 'Voir le détail'">
+      <mat-icon>{{open() ? 'expand_less' : 'expand_more'}}</mat-icon>
+    </button>
+  </div>
+
+  <div class="ec-body" *ngIf="open()">
+    <ng-content></ng-content>
+  </div>
+</div>

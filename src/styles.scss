@@ -1,0 +1,103 @@
+@use '@angular/material' as mat;
+@use 'app/shared' as shared;
+
+// ============================================
+// AF10 — design tokens
+// All component SCSS files reference these
+// CSS custom properties. Never hardcode hex.
+// ============================================
+
+:root {
+  // Brand
+  --primary-50:  #ecf3fb;
+  --primary-100: #d3e2f3;
+  --primary-200: #a8c5e7;
+  --primary-300: #7ca8da;
+  --primary-400: #508bcd;
+  --primary-500: #214A67;
+  --primary-700: #193a52;
+  --primary-900: #0f2433;
+
+  // Accent
+  --accent-500: #4E9F83;
+  --accent-700: #356b58;
+
+  // Neutrals
+  --bg:        #F7F9FA;
+  --surface:   #FFFFFF;
+  --border:    #E2E8EE;
+  --text:      #1B2730;
+  --text-mute: #64727D;
+
+  // Radius
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  // Spacing
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 48px;
+
+  --max-width: 1100px;
+  --header-height: 64px;
+}
+
+// ============================================
+// Material 3 theme
+// ============================================
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$blue-palette,
+      tertiary: mat.$green-palette,
+    ),
+    typography: (
+      plain-family: 'Inter, system-ui, sans-serif',
+      brand-family: 'Inter, system-ui, sans-serif',
+    ),
+    density: 0,
+  ));
+}
+
+// ============================================
+// Global resets
+// ============================================
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--primary-500);
+  text-decoration: none;
+  &:hover { color: var(--primary-700); }
+}
+
+h1, h2, h3, h4 { color: var(--text); margin: 0; }
+
+h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 1.8rem; font-weight: 600; line-height: 1.3; }
+h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+
+p { line-height: 1.6; color: var(--text-mute); }
+
+// Material surface tuning
+.mat-mdc-card { border-radius: var(--radius-lg) !important; }
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button { border-radius: var(--radius-md) !important; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+}

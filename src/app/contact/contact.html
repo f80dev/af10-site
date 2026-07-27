@@ -1,0 +1,67 @@
+<div class="container" *ngIf="!submitted(); else thanks">
+  <h1>Contact</h1>
+  <p class="lead">
+    Décrivez votre besoin en quelques lignes. Nous revenons vers vous sous 2 jours ouvrés.
+    Vous pouvez aussi nous écrire directement à <a href="mailto:contact@af10.fr">contact@af10.fr</a>.
+  </p>
+
+  <form class="form" (ngSubmit)="submit()" #f="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nom *</mat-label>
+      <input matInput [ngModel]="name()" (ngModelChange)="name.set($event)" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Organisation</mat-label>
+      <input matInput [ngModel]="org()" (ngModelChange)="org.set($event)" name="org">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email *</mat-label>
+      <input matInput type="email" [ngModel]="email()" (ngModelChange)="email.set($event)" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sujet</mat-label>
+      <input matInput [ngModel]="subject()" (ngModelChange)="subject.set($event)" name="subject">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Type de besoin</mat-label>
+      <mat-select [ngModel]="need()" (ngModelChange)="need.set($event)" name="need">
+        <mat-option *ngFor="let n of needs" [value]="n">{{n}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Description du projet *</mat-label>
+      <textarea matInput rows="6" [ngModel]="message()" (ngModelChange)="message.set($event)" name="message" required></textarea>
+    </mat-form-field>
+
+    <mat-checkbox class="full" [ngModel]="consent()" (ngModelChange)="consent.set($event)" name="consent">
+      J'accepte qu'AF10 traite mes données pour me recontacter (voir la
+      <a routerLink="/politique-confidentialite">politique de confidentialité</a>).
+    </mat-checkbox>
+
+    <div *ngIf="error()" class="error">
+      <mat-icon>error_outline</mat-icon> {{error()}}
+    </div>
+
+    <div class="actions">
+      <button mat-flat-button color="primary" type="submit" [disabled]="submitting()">
+        <mat-icon *ngIf="!submitting()">send</mat-icon>
+        {{ submitting() ? 'Envoi…' : 'Envoyer' }}
+      </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #thanks>
+  <div class="container thanks">
+    <mat-icon class="thanks-icon">check_circle</mat-icon>
+    <h1>Merci, votre message est prêt à être envoyé.</h1>
+    <p>Votre client mail vient de s'ouvrir avec un message pré-rempli à <strong>contact@af10.fr</strong>.<br>
+       Si rien ne s'est passé, écrivez-nous directement à
+       <a href="mailto:contact@af10.fr">contact@af10.fr</a>.</p>
+  </div>
+</ng-template>

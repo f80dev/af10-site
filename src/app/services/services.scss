@@ -1,0 +1,36 @@
+@use '../shared' as shared;
+
+.container { @extend %page-container; @extend %section; max-width: 1000px; }
+
+.intro {
+  color: var(--text-mute);
+  font-size: 1.05rem;
+  margin: var(--gap-md) 0 var(--gap-lg);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--gap-md);
+
+  ul {
+    padding-left: 18px;
+    margin: 0;
+  }
+  li { margin-bottom: 6px; color: var(--text-mute); }
+}
+
+.cta {
+  margin-top: var(--gap-xl);
+  background: var(--primary-50);
+  border-radius: var(--radius-lg);
+  padding: var(--gap-xl);
+  text-align: center;
+
+  h2 { margin-bottom: var(--gap-md); }
+
+  a[mat-flat-button] {
+    background: var(--primary-500);
+    color: white;
+  }
+}

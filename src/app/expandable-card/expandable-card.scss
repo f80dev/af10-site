@@ -1,0 +1,48 @@
+@use '../shared' as shared;
+
+.ec {
+  @extend %card;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ec-head {
+  @extend %between;
+  padding: var(--gap-md) var(--gap-lg);
+  gap: var(--gap-md);
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--primary-300);
+  }
+}
+
+.ec-icon {
+  color: var(--primary-500);
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.ec-text { flex: 1; }
+
+.ec-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ec-summary {
+  color: var(--text-mute);
+  font-size: .95rem;
+  margin: 0;
+}
+
+.ec-body {
+  padding: 0 var(--gap-lg) var(--gap-lg);
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+  padding-top: var(--gap-md);
+}

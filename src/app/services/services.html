@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Services</h1>
+  <p class="intro">
+    AF10 intervient de bout en bout sur vos projets. Chaque service peut être
+    engagé indépendamment ou enchaîné pour un accompagnement global.
+  </p>
+
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let s of items"
+      [title]="s.title"
+      [summary]="s.summary"
+      [icon]="s.icon">
+      <ul>
+        <li *ngFor="let d of s.details">{{d}}</li>
+      </ul>
+    </app-expandable-card>
+  </div>
+
+  <div class="cta">
+    <h2>Une mission en tête ?</h2>
+    <a mat-flat-button color="primary" routerLink="/contact">Décrire mon besoin</a>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@use '../shared' as shared;
+
+.container { @extend %page-container; @extend %section; max-width: 800px; }
+
+.updated {
+  color: var(--text-mute);
+  font-size: .9rem;
+  margin: 8px 0 var(--gap-lg);
+}
+
+:host ::ng-deep {
+  h2 { font-size: 1.25rem; color: var(--primary-700); margin-top: var(--gap-lg); margin-bottom: 8px; }
+  p { margin-bottom: var(--gap-md); }
+  ul { padding-left: 18px; }
+  li { margin-bottom: 4px; }
+}

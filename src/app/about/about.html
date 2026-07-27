@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>À propos</h1>
+  <p class="lead">
+    AF10 est une société de conseil et de réalisation logicielle, spécialisée dans
+    l'intégration de solutions informatiques et d'IA dans les métiers de la gestion
+    de scolarité, du CRM et de la relation client.
+  </p>
+
+  <h2 class="section-title">Notre approche</h2>
+  <app-expandable-card title="Une expertise full-stack"
+                        summary="Front-end Angular 21, back-end Python, bases de données, intégrations cloud."
+                        icon="workspaces">
+    <p>AF10 intervient sur l'ensemble de la chaîne technique : cadrage, design d'interface, développement front et back, intégration, déploiement et exploitation.</p>
+  </app-expandable-card>
+
+  <app-expandable-card title="Une IA orientée résultats"
+                        summary="L'IA est utilisée là où elle simplifie réellement le travail."
+                        icon="auto_awesome">
+    <p>Recommandation, analyse, génération de réponses, agents autonomes : AF10 intègre l'IA dans des applications métier concrètes plutôt que comme fonctionnalité gadget.</p>
+  </app-expandable-card>
+
+  <app-expandable-card title="Un interlocuteur de bout en bout"
+                        summary="Un seul interlocuteur du besoin à la mise en production."
+                        icon="handshake">
+    <p>AF10 privilégie les relations directes et la compréhension fine des processus métier. Le projet est porté en interne sans sous-traitance cachée.</p>
+  </app-expandable-card>
+
+  <h2 class="section-title">Ce qui nous différencie</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      *ngFor="let v of values"
+      [title]="v.title"
+      [summary]="v.summary"
+      [icon]="v.icon">
+    </app-expandable-card>
+  </div>
+
+  <div class="cta">
+    <h2>Travaillons ensemble</h2>
+    <a mat-flat-button color="primary" routerLink="/contact">Prendre contact</a>
+  </div>
+</div>
