@@ -57,6 +57,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/af10-site/",
               "budgets": [
                 {
                   "type": "initial",
