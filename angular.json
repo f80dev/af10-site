@@ -49,6 +49,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "posts.json",
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [

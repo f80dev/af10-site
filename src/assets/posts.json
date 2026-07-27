@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "af10-ia-appliquee-outils-metiers",
+    "title": "L'IA appliquée aux outils métiers : ce qui marche vraiment",
+    "date": "2026-07-20",
+    "author": "AF10",
+    "tags": ["IA", "Automatisation", "Méthode"],
+    "excerpt": "Après deux ans à intégrer des LLM dans des applications métier, voici ce qu'on a appris : là où l'IA apporte de la valeur, et là où elle n'en apporte pas.",
+    "html": "<p>Beaucoup d'organisations se demandent aujourd'hui comment intégrer l'IA dans leurs outils. La tentation est grande de tout bouleverser. Notre retour d'expérience, après deux ans d'intégration de LLM dans des applications concrètes, est plus nuancé.</p><h2>Trois prérequis avant d'ajouter de l'IA</h2><ol><li><strong>Des données propres et accessibles</strong> : sans données structurées, l'IA n'a rien à exploiter.</li><li><strong>Un cas d'usage métier identifié</strong> : l'IA au service d'un processus, pas l'inverse.</li><li><strong>Un mécanisme de validation</strong> : l'IA propose, l'humain dispose.</li></ol><h2>Ce qui marche</h2><ul><li><strong>Recommandation</strong> : suggérer des hébergements, des POIs, des contacts pertinents.</li><li><strong>Extraction et structuration</strong> : transformer du texte libre en données exploitables.</li><li><strong>Analyse de sentiments et de thèmes</strong> : sur des messages, des avis, des retours.</li><li><strong>Rédaction assistée</strong> : pré-brouillons, reformulations, traductions.</li></ul><h2>Ce qui ne marche pas (encore) bien</h2><p>L'IA reste fragile sur les tâches qui exigent une rigueur métier exacte : calculs financiers, conformité réglementaire pointue, décisions juridiques. Dans ces cas, l'IA doit être un assistant, jamais un décideur.</p><h2>Notre approche chez AF10</h2><p>Nous commençons toujours par cartographier les processus existants et identifier les irritants. L'IA n'est ajoutée qu'à l'endroit où elle apporte un gain mesurable — en temps économisé, en erreurs évitées, en satisfaction utilisateur.</p>"
+  },
+  {
+    "slug": "pourquoi-angular-21-en-2026",
+    "title": "Pourquoi Angular 21 reste notre choix pour les applications métier",
+    "date": "2026-07-10",
+    "author": "AF10",
+    "tags": ["Angular", "Technique", "Front-end"],
+    "excerpt": "Angular a beaucoup évolué. Tour d'horizon des choix qui rendent la version 21 particulièrement adaptée aux outils métier de longue durée.",
+    "html": "<p>Angular fête ses dix ans. En 2026, le framework reste l'un des plus structurés pour construire des applications métier durables. Voici pourquoi AF10 le choisit pour la majorité de ses projets.</p><h2>Une architecture qui force la rigueur</h2><p>Les composants standalone, les signaux, l'injection de dépendances explicite : Angular 21 pousse à structurer le code dès le départ. Pour une application destinée à vivre plusieurs années, c'est un investissement qui paie.</p><h2>Material 21 : un design system complet</h2><p>Angular Material propose un ensemble cohérent de composants accessibles, internationalisés, et désormais compatibles avec le Material 3. Pour un outil métier, c'est un gain de temps considérable.</p><h2>Performances et taille de bundle</h2><p>Le nouveau builder <code>@angular/build</code> et le lazy loading par route permettent de garder un bundle initial raisonnable, même pour des applications riches.</p><h2>Interopérabilité</h2><p>Angular s'intègre facilement avec des API REST, GraphQL, Firebase, des WebSockets. Pour des outils qui doivent se connecter à un SI existant, c'est essentiel.</p><h2>Quand ne pas choisir Angular</h2><p>Pour un simple site marketing, un blog, ou un micro-outil jetable, Angular est probablement trop. Pour un outil métier amené à évoluer sur plusieurs années, il reste l'un des meilleurs choix.</p>"
+  },
+  {
+    "slug": "integrer-llm-dans-app-metier",
+    "title": "Intégrer un LLM dans une application métier : le pattern agent",
+    "date": "2026-06-28",
+    "author": "AF10",
+    "tags": ["IA", "Architecture", "LLM"],
+    "excerpt": "Trois patterns pour intégrer un LLM dans un outil métier : l'appel direct, la chaîne, et l'agent autonome. Lequel choisir selon votre cas d'usage.",
+    "html": "<p>Intégrer un LLM dans une application métier ne se résume pas à un appel <code>POST</code> sur une API. Le choix du pattern d'intégration détermine la qualité, le coût et la prévisibilité du résultat.</p><h2>Pattern 1 — Appel direct</h2><p>Le plus simple : un prompt statique, une réponse, un affichage. Adapté aux cas triviaux (réécriture, classification).</p><pre><code>const response = await llm.complete({\n  prompt: 'Résume ce texte en 3 phrases : ' + text\n});</code></pre><h2>Pattern 2 — Chaîne (chain)</h2><p>Une suite d'étapes où chaque appel LLM dépend du précédent. Adapté aux workflows : extraction → analyse → reformulation.</p><h2>Pattern 3 — Agent autonome</h2><p>Le LLM décide lui-même des étapes, avec accès à des outils (recherche, calcul, API). Adapté aux tâches complexes et ouvertes, mais plus coûteux et moins prévisible.</p><h2>Critères de choix</h2><ul><li><strong>Coût</strong> : un agent peut consommer 10 à 100× plus de tokens qu'un appel direct.</li><li><strong>Latence</strong> : un agent peut prendre 30 secondes là où un appel direct répond en 1 seconde.</li><li><strong>Prévisibilité</strong> : un appel direct est testable unitairement, un agent beaucoup moins.</li><li><strong>Capacité à raisonner</strong> : un agent brille sur les problèmes non déterministes, un appel direct sur les tâches cadrées.</li></ul><h2>Notre recommandation</h2><p>Commencez par le pattern le plus simple possible. Ne passez à l'agent que si le besoin métier l'exige vraiment, et toujours avec des garde-fous : budget de tokens, validation humaine, journalisation exhaustive.</p>"
+  }
+]

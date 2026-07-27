@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Blog</h1>
+  <p class="lead">
+    Retours d'expérience, choix techniques, méthodes — ce qu'on apprend en construisant
+    des outils métiers au quotidien.
+  </p>
+
+  @if (tags().length > 0) {
+    <div class="filters">
+      <button class="filter"
+              [class.active]="activeTag() === null"
+              (click)="selectTag(null)">Tous</button>
+      @for (t of tags(); track t) {
+        <button class="filter"
+                [class.active]="activeTag() === t"
+                (click)="selectTag(t)">{{t}}</button>
+      }
+    </div>
+  }
+
+  @if (loadError()) {
+    <p class="error">{{loadError()}}</p>
+  }
+  @if (isLoaded() && visible().length === 0) {
+    <p class="empty">Aucun article pour ce filtre.</p>
+  }
+
+  <div class="posts-grid">
+    @for (p of visible(); track p.slug) {
+      <article class="post">
+        <div class="post-meta">
+          <time [attr.datetime]="p.date">{{p.date | date:'longDate':'':'fr'}}</time>
+          <span class="sep">·</span>
+          <span class="author">{{p.author}}</span>
+        </div>
+        <h2 class="post-title">
+          <a [routerLink]="['/blog', p.slug]">{{p.title}}</a>
+        </h2>
+        <p class="post-excerpt">{{p.excerpt}}</p>
+        <div class="post-tags">
+          @for (t of p.tags; track t) {
+            <span class="chip">{{t}}</span>
+          }
+        </div>
+        <a mat-button color="primary" [routerLink]="['/blog', p.slug]">
+          Lire l'article
+          <mat-icon>arrow_forward</mat-icon>
+        </a>
+      </article>
+    }
+  </div>
+</div>

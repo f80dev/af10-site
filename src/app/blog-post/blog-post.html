@@ -1,0 +1,38 @@
+<div class="container" *ngIf="post() as p; else notFound">
+  <a routerLink="/blog" class="back-link">
+    <mat-icon>arrow_back</mat-icon> Tous les articles
+  </a>
+
+  <article>
+    <header class="post-head">
+      <div class="post-meta">
+        <time [attr.datetime]="p.date">{{p.date | date:'longDate':'':'fr'}}</time>
+        <span class="sep">·</span>
+        <span class="author">{{p.author}}</span>
+      </div>
+      <h1>{{p.title}}</h1>
+      <div class="post-tags">
+        <span class="chip" *ngFor="let t of p.tags">{{t}}</span>
+      </div>
+    </header>
+
+    <div class="post-body" [innerHTML]="safeHtml()"></div>
+
+    <footer class="post-foot">
+      <a mat-stroked-button routerLink="/blog">
+        <mat-icon>arrow_back</mat-icon> Retour au blog
+      </a>
+    </footer>
+  </article>
+</div>
+
+<ng-template #notFound>
+  <div class="container">
+    <a routerLink="/blog" class="back-link">
+      <mat-icon>arrow_back</mat-icon> Tous les articles
+    </a>
+    <h1>Article introuvable</h1>
+    <p>Ce billet n'existe pas ou a été retiré.</p>
+    <a mat-flat-button color="primary" routerLink="/blog">Retour au blog</a>
+  </div>
+</ng-template>

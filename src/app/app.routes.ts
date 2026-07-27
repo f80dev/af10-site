@@ -32,6 +32,16 @@ export const routes: Routes = [
     title: 'Méthode — AF10',
   },
   {
+    path: 'blog',
+    loadComponent: () => import('./blog/blog').then(m => m.Blog),
+    title: 'Blog — AF10',
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () => import('./blog-post/blog-post').then(m => m.BlogPost),
+    title: 'Article — AF10',
+  },
+  {
     path: 'a-propos',
     loadComponent: () => import('./about/about').then(m => m.About),
     title: 'À propos — AF10',

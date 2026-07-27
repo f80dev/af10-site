@@ -9,6 +9,7 @@
 
 .ec-head {
   @extend %between;
+  align-items: flex-start;
   padding: var(--gap-md) var(--gap-lg);
   gap: var(--gap-md);
   outline: none;
@@ -24,6 +25,7 @@
   width: 28px;
   height: 28px;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .ec-text { flex: 1; }

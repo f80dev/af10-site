@@ -5,7 +5,9 @@
       <h3 class="ec-title">{{title}}</h3>
       <p class="ec-summary" *ngIf="!open()">{{summary}}</p>
     </div>
-    <button mat-icon-button class="ec-toggle" [attr.aria-label]="open() ? 'Réduire' : 'Voir le détail'">
+    <button type="button" mat-icon-button class="ec-toggle"
+            (click)="toggle(); $event.stopPropagation()"
+            [attr.aria-label]="open() ? 'Réduire' : 'Voir le détail'">
       <mat-icon>{{open() ? 'expand_less' : 'expand_more'}}</mat-icon>
     </button>
   </div>
