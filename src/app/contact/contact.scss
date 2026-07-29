@@ -4,13 +4,14 @@
 
 .lead {
   color: var(--text-mute);
-  margin: var(--gap-md) 0 var(--gap-lg);
+  margin: var(--gap-md) 0 var(--gap-xl);
+  font-size: 1.05rem;
 }
 
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--gap-md);
+  gap: var(--gap-lg);
 }
 
 .form .full { grid-column: 1 / -1; }
@@ -21,6 +22,7 @@ mat-form-field { width: 100%; }
   grid-column: 1 / -1;
   display: flex;
   justify-content: flex-end;
+  margin-top: var(--gap-md);
 
   button[mat-flat-button] {
     background: var(--primary-500);

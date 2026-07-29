@@ -12,16 +12,19 @@
 %page-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--gap-lg) var(--gap-xl);
+  padding: var(--gap-xl) var(--gap-xl);
+
+  @media (max-width: 900px) {
+    padding: var(--gap-lg) var(--gap-lg);
+  }
 
   @media (max-width: 700px) {
-    // Slightly tighter on phones so content doesn't crush against edges,
-    // but still roomy enough for thumb-friendly tap targets.
+    // Still roomy but never below 16px on the sides.
     padding: var(--gap-md) var(--gap-md);
   }
 
   @media (max-width: 420px) {
-    padding: var(--gap-sm) var(--gap-md);
+    padding: var(--gap-md) var(--gap-sm);
   }
 }
 
@@ -29,7 +32,11 @@
 // Section block — vertical rhythm
 // ------------------------------------------------------------
 %section {
-  padding: var(--gap-xl) 0;
+  padding: var(--gap-2xl) 0;
+
+  @media (max-width: 700px) {
+    padding: var(--gap-xl) 0;
+  }
 }
 
 %section-title {
@@ -38,7 +45,9 @@
   color: var(--primary-700);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: var(--gap-md);
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap-sm);
+  border-bottom: 1px solid var(--border);
 }
 
 // ------------------------------------------------------------
@@ -49,12 +58,20 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--gap-lg);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background-color .3s ease,
+    border-color .3s ease;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(33, 74, 103, .08);
   }
+}
+
+[data-theme="dark"] %card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
 }
 
 // ------------------------------------------------------------

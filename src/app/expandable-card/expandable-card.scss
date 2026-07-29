@@ -9,6 +9,7 @@
   padding: 0;
   overflow: hidden;
   cursor: pointer;
+  min-height: 96px;
   transition:
     transform .2s ease,
     box-shadow .2s ease,
@@ -18,13 +19,6 @@
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(33, 74, 103, .08);
-  }
-
-  // When the verso is hidden (no projected content), there's nothing
-  // to flip to — drop the front hint indicator and stop signaling.
-  &:has(.ec-back[style*="display: none"]) .ec-front .ec-hint,
-  &:not(:has(.ec-back)) .ec-front .ec-hint {
-    display: none;
   }
 }
 
@@ -80,8 +74,7 @@
   padding-top: var(--gap-md);
   padding-bottom: var(--gap-md);
 
-  // Hide the entire verso when the projected slot is empty.
-  // Without projected content, .ec-back-content has no element children.
+  // Hide the verso when the slot is empty (no projected content).
   &:has(> .ec-back-content:not(:has(> *))) {
     display: none;
   }
@@ -98,7 +91,6 @@
   overflow-y: auto;
   max-height: 280px;
 
-  // Normalize any block content the consumer projects in
   p { margin: 0; }
   p + p { margin-top: 4px; }
   a { color: var(--primary-500); }
@@ -129,15 +121,15 @@
 
 .ec-hint {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--primary-50);
   color: var(--primary-700);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   transition: transform .3s ease, background .25s ease;
 
@@ -152,6 +144,10 @@
   color: #fff;
   align-self: flex-end;
   margin-top: auto;
+}
+
+.ec.flipped .ec-hint {
+  transform: rotate(180deg);
 }
 
 [data-theme="dark"] .ec-hint {

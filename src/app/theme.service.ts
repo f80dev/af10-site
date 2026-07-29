@@ -62,12 +62,19 @@ export class ThemeService {
   }
 
   private detect(): Theme {
-    if (!isPlatformBrowser(this.PLATFORM_ID)) return 'light';
+    if (!isPlatformBrowser(this.PLATFORM_ID)) return 'dark';
     try {
       const stored = this.doc.defaultView?.localStorage.getItem(STORAGE_KEY);
       if (stored === 'dark' || stored === 'light') return stored;
     } catch { /* ignore */ }
+    // Dark mode is the default at the application level.
+    // The OS-level prefers-color-scheme is still honoured on first visit
+    // (so a light-only user on a non-dark system still sees light),
+    // but when the OS reports "no preference" we now default to dark.
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    return mq.matches ? 'dark' : 'light';
+    if (mq.matches) return 'dark';
+    if (mq.media === '(prefers-color-scheme: light)') return 'light';
+    // No media-query support at all → dark.
+    return 'dark';
   }
 }

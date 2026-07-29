@@ -11,7 +11,7 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--gap-md);
+  gap: var(--gap-lg);
 
   ul {
     padding-left: 18px;

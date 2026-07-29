@@ -5,16 +5,20 @@
 // Using a fixed dark color avoids it flipping to a light pastel in
 // dark mode when --primary-900 reverts to the lightest Material stop.
 .footer {
-  background: #0a1410;  // darker than --bg in light or dark mode
+  background: #0a1410;
   color: rgba(255, 255, 255, .85);
-  padding: var(--gap-xl) var(--gap-lg) var(--gap-md);
-  margin-top: var(--gap-xl);
+  padding: var(--gap-2xl) var(--gap-xl) var(--gap-lg);
+  margin-top: var(--gap-2xl);
   transition: background-color .3s ease;
+
+  @media (max-width: 700px) {
+    padding: var(--gap-xl) var(--gap-md) var(--gap-md);
+  }
 }
 
 [data-theme="dark"] .footer,
 [data-theme="dark"] html .footer {
-  background: #060d0a;  // even deeper in dark mode
+  background: #060d0a;
 }
 
 .footer-grid {
@@ -22,7 +26,11 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--gap-xl);
+  gap: var(--gap-2xl);
+
+  @media (max-width: 900px) {
+    gap: var(--gap-xl);
+  }
 
   h3 {
     color: white;
@@ -35,7 +43,7 @@
   a {
     display: block;
     color: rgba(255,255,255,.75);
-    padding: 4px 0;
+    padding: 6px 0;
     text-decoration: none;
 
     &:hover { color: white; }
@@ -44,7 +52,7 @@
 
 .footer-base {
   max-width: var(--max-width);
-  margin: var(--gap-lg) auto 0;
+  margin: var(--gap-xl) auto 0;
   padding-top: var(--gap-md);
   border-top: 1px solid rgba(255,255,255,.1);
   font-size: .85rem;

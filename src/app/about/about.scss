@@ -5,24 +5,24 @@
 .lead {
   font-size: 1.15rem;
   color: var(--text-mute);
-  margin: var(--gap-md) 0 var(--gap-xl);
+  margin: var(--gap-md) 0 var(--gap-2xl);
   border-left: 3px solid var(--primary-500);
   padding-left: var(--gap-md);
 }
 
-.section-title { @extend %section-title; margin-top: var(--gap-xl); }
+.section-title { @extend %section-title; margin-top: var(--gap-2xl); }
 
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--gap-md);
+  gap: var(--gap-lg);
 }
 
 .cta {
-  margin-top: var(--gap-xl);
+  margin-top: var(--gap-2xl);
   background: var(--primary-50);
   border-radius: var(--radius-lg);
-  padding: var(--gap-xl);
+  padding: var(--gap-2xl) var(--gap-xl);
   text-align: center;
 
   h2 { margin-bottom: var(--gap-md); }
@@ -34,7 +34,7 @@
 }
 
 .founder {
-  margin-top: var(--gap-xl);
+  margin-top: var(--gap-2xl);
 }
 
 .founder-card {
@@ -42,7 +42,7 @@
   border: 1px solid var(--border);
   border-left: 4px solid var(--primary-500);
   border-radius: var(--radius-lg);
-  padding: var(--gap-lg) var(--gap-xl);
+  padding: var(--gap-xl) var(--gap-xl);
   transition: background-color .3s ease, border-color .3s ease;
 
   h2 {

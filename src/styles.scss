@@ -5,71 +5,29 @@
 // AF10 — design tokens
 // All component SCSS files reference these
 // CSS custom properties. Never hardcode hex.
+//
+// DARK is the default at the root level. LIGHT is an explicit
+// override applied via [data-theme="light"] on <html>.
 // ============================================
 
 :root {
-  color-scheme: light;
-
-  // Brand — Green palette (Forest / Emerald)
-  --primary-50:  #ecf6f1;
-  --primary-100: #d3ebde;
-  --primary-200: #a8d7be;
-  --primary-300: #7cc29e;
-  --primary-400: #4fae7e;
-  --primary-500: #2E7D5B;   /* main brand */
-  --primary-700: #1F5B41;
-  --primary-900: #103626;
-
-  // Accent — warm complementary gold for CTAs
-  --accent-500: #C9A227;
-  --accent-700: #9B7E13;
-
-  // Neutrals
-  --bg:        #F4F8F5;
-  --surface:   #FFFFFF;
-  --surface-2: #EAF1ED;
-  --border:    #D8E3DD;
-  --text:      #102A1F;
-  --text-mute: #51685C;
-
-  // Radius
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-
-  // Spacing
-  --gap-sm: 8px;
-  --gap-md: 16px;
-  --gap-lg: 24px;
-  --gap-xl: 48px;
-
-  --max-width: 1100px;
-  --header-height: 64px;
-
-  // Material 3 theme tokens
-  --mat-sys-primary: var(--primary-500);
-  --mat-sys-on-primary: #FFFFFF;
-  --mat-sys-surface: var(--surface);
-}
-
-// ============================================
-// Dark mode — toggled via [data-theme="dark"] on <html>
-// ============================================
-[data-theme="dark"] {
   color-scheme: dark;
 
+  // Brand — Green palette (Forest / Emerald), bright stops for dark bg
   --primary-50:  #0f2620;
   --primary-100: #143126;
   --primary-200: #1c4534;
   --primary-300: #26614a;
   --primary-400: #3a8a68;
-  --primary-500: #7dc9a0;   /* lighter for contrast on dark */
+  --primary-500: #7dc9a0;   /* main brand on dark */
   --primary-700: #a8d8be;
   --primary-900: #d8efe1;
 
+  // Accent — warm gold for CTAs
   --accent-500: #E5C66A;
   --accent-700: #C9A227;
 
+  // Neutrals
   --bg:        #0E1A14;
   --surface:   #16241D;
   --surface-2: #1F3129;
@@ -77,38 +35,57 @@
   --text:      #E8F1EB;
   --text-mute: #9CB5A6;
 
+  // Radius
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  // Spacing — extended scale used for vertical rhythm
+  --gap-xs:  4px;
+  --gap-sm:  8px;
+  --gap-md:  16px;
+  --gap-lg:  24px;
+  --gap-xl:  48px;
+  --gap-2xl: 64px;
+  --gap-3xl: 96px;
+
+  --max-width: 1100px;
+  --header-height: 64px;
+
+  // Material 3 theme tokens
   --mat-sys-primary: var(--primary-500);
   --mat-sys-on-primary: #0E1A14;
   --mat-sys-surface: var(--surface);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
+// ============================================
+// Light mode — explicit override via [data-theme="light"]
+// ============================================
+[data-theme="light"] {
+  color-scheme: light;
 
-    --primary-50:  #0f2620;
-    --primary-100: #143126;
-    --primary-200: #1c4534;
-    --primary-300: #26614a;
-    --primary-400: #3a8a68;
-    --primary-500: #7dc9a0;
-    --primary-700: #a8d8be;
-    --primary-900: #d8efe1;
+  --primary-50:  #ecf6f1;
+  --primary-100: #d3ebde;
+  --primary-200: #a8d7be;
+  --primary-300: #7cc29e;
+  --primary-400: #4fae7e;
+  --primary-500: #2E7D5B;
+  --primary-700: #1F5B41;
+  --primary-900: #103626;
 
-    --accent-500: #E5C66A;
-    --accent-700: #C9A227;
+  --accent-500: #C9A227;
+  --accent-700: #9B7E13;
 
-    --bg:        #0E1A14;
-    --surface:   #16241D;
-    --surface-2: #1F3129;
-    --border:    #2A4033;
-    --text:      #E8F1EB;
-    --text-mute: #9CB5A6;
+  --bg:        #F4F8F5;
+  --surface:   #FFFFFF;
+  --surface-2: #EAF1ED;
+  --border:    #D8E3DD;
+  --text:      #102A1F;
+  --text-mute: #51685C;
 
-    --mat-sys-primary: var(--primary-500);
-    --mat-sys-on-primary: #0E1A14;
-    --mat-sys-surface: var(--surface);
-  }
+  --mat-sys-primary: var(--primary-500);
+  --mat-sys-on-primary: #FFFFFF;
+  --mat-sys-surface: var(--surface);
 }
 
 // ============================================
@@ -117,7 +94,7 @@
 html {
   @include mat.theme((
     color: (
-      theme-type: light,
+      theme-type: dark,
       primary: mat.$green-palette,
       tertiary: mat.$green-palette,
     ),
@@ -129,10 +106,10 @@ html {
   ));
 }
 
-html[data-theme="dark"] {
+html[data-theme="light"] {
   @include mat.theme((
     color: (
-      theme-type: dark,
+      theme-type: light,
       primary: mat.$green-palette,
       tertiary: mat.$green-palette,
     ),
