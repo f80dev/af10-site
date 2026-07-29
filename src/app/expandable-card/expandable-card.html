@@ -1,7 +1,6 @@
-<div class="ec" [class.flipped]="open()">
+<div class="ec" [class.flipped]="open()" (click)="toggle()">
   <button type="button"
           class="ec-inner"
-          (click)="toggle()"
           [attr.aria-expanded]="open()"
           [attr.aria-label]="open() ? 'Réduire' : 'Voir le détail'">
 
