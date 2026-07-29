@@ -1,8 +1,9 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Output, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {ThemeService} from '../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +13,5 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class Header {
   @Output() menuToggle = new EventEmitter<void>();
+  protected theme = inject(ThemeService);
 }

@@ -1,30 +1,241 @@
 <div class="container">
   <h1>À propos</h1>
   <p class="lead">
-    AF10 est une société de conseil et de réalisation logicielle, spécialisée dans
-    l'intégration de solutions informatiques et d'IA dans les métiers de la gestion
-    de scolarité, du CRM et de la relation client.
+    AF10 est une société de conseil et de réalisation logicielle, dirigée par
+    Hervé Hoareau, spécialiste de la digitalisation de la relation client et
+    de l'intégration d'IA dans les outils métier.
   </p>
 
+  <!-- FONDATEUR -->
+  <section class="founder">
+    <div class="founder-card">
+      <h2>Hervé Hoareau</h2>
+      <p class="founder-role">Gérant & fondateur — AF10 / F80</p>
+      <ul class="founder-meta">
+        <li><strong>Depuis 2016</strong> — Gérant de F80, éditeur du service Shifumix</li>
+        <li><strong>1997 – 2013</strong> — SFR Grand Public (Direction Innovation, Digital, Marketing produit, Service Client)</li>
+        <li><strong>1994 – 1997</strong> — Cap Gemini (Development Agile)</li>
+      </ul>
+      <p class="founder-quote">
+        « Digitaliser la relation client, ouvrir l'innovation, livrer du logiciel
+        utile : trois angles que je fais converger depuis vingt ans. »
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERTISES -->
+  <h2 class="section-title">Domaines d'expertise</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      title="Digitalisation de la relation client"
+      summary="10 ans à piloter plateformes collaboratives et communautés digitales."
+      icon="support_agent">
+      <p>
+        Direction de la digitalisation de la relation client chez SFR (12 M€
+        d'investissements) : selfcare web et mobile, FAQ à 8 M de pages vues
+        par mois, application Service Client à 5 M de téléchargements,
+        serveurs vocaux interactifs.
+      </p>
+      <p><strong>Résultats concrets :</strong> automatisation par data mining,
+        optimisation continue des parcours, growth via SEO / SEA / marketing
+        programmatique, automatisation par reconnaissance du langage et
+        machine learning.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="Management de l'innovation ouverte"
+      summary="Open innovation, communautés de développeurs, hackathons, OpenData."
+      icon="rocket_launch">
+      <p>
+        Lancement de <em>L'Atelier SFR</em> (50 000 membres, première plateforme
+        française d'innovation ouverte), du programme d'exposition d'APIs
+        multi-opérateurs <em>SFR API</em> et de la plateforme d'applications
+        <em>SFR AppliStore</em>.
+      </p>
+      <p>
+        Animation par publication de codes, hackathons, et pilotage d'un
+        processus d'innovation continue impliquant l'ensemble des directions
+        et les clients.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="Ingénierie logicielle & data"
+      summary="Front-end, back-end, données, machine learning, deep learning."
+      icon="code">
+      <p>
+        Maîtrise opérationnelle des principaux langages et environnements :
+        Angular 21, Java, Python, SQL / NoSQL, intégration d'APIs, cloud
+        (Google App Engine, Docker, AWS).
+      </p>
+      <p>
+        Diplôme Universitaire d'Analyste Big Data (Paris 5) — fouille de
+        données, machine learning, représentation, cadre réglementaire.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="Management opérationnel d'équipes pluridisciplinaires"
+      summary="Marketing, technique, formation, conduite de projets — en direct."
+      icon="groups">
+      <p>
+        Direction d'équipes mêlant marketing, technique, formation et
+        conduite de projets. Pratique du développement agile (sprints,
+        itérations clients, AMO) héritée de Cap Gemini et déployée chez SFR.
+      </p>
+    </app-expandable-card>
+  </div>
+
+  <!-- PARCOURS -->
+  <h2 class="section-title">Parcours</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      title="AF10 / F80 — Gérant (depuis 2016)"
+      summary="Conseil et réalisation logicielle, IA appliquée aux outils métier."
+      icon="business_center">
+      <p>
+        Édition du service <em>Shifumix</em>, conseil et réalisation pour
+        établissements culturels (CNSMDP, ENSAD, FEMIS, SNL), professionnelles
+        du soin et de l'accompagnement, et acteurs publics.
+      </p>
+      <p>
+        <strong>Réalisations types :</strong> plateformes Angular 21 + Material,
+        API Python Flask/FastAPI, automatisations par agents IA, intégrations
+        de données ouvertes, déploiements cloud.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="SFR Grand Public (1997 – 2013)"
+      summary="Direction Internet / Relation Client Digitale, Innovation, Marketing, Service Client."
+      icon="cell_tower">
+      <p>
+        <strong>Direction Internet / Relation Client Digitale (depuis 2013)</strong> :
+        pilotage de la digitalisation (12 M€), data mining, selfcare, SEO/SEA,
+        marketing programmatique, ML pour la relation client.
+      </p>
+      <p>
+        <strong>Direction Innovation (2011-2013)</strong> : SFR API (exposition
+        d'APIs), SFR AppliStore, programme multi-opérateurs.
+      </p>
+      <p>
+        <strong>Direction Marketing produit (2007-2011)</strong> : L'Atelier
+        SFR (50 000 membres).
+      </p>
+      <p>
+        <strong>Direction Service Client (1998-2007)</strong> : lancement des
+        offres SFR, mise en place du service client ADSL.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="Cap Gemini (1994 – 1997)"
+      summary="AMO agile, architecture logicielle, secteur automobile."
+      icon="engineering">
+      <p>
+        Direction Development Agile : assistance à maîtrise d'ouvrage (PSA),
+        analyse d'impacts, itérations clients, coordination des développements.
+      </p>
+      <p>
+        Conception et réalisation d'une plateforme de gestion des pièces
+        détachées pour les concessionnaires : architecture fortement orientée
+        objet, base de données, livraison.
+      </p>
+    </app-expandable-card>
+  </div>
+
+  <!-- FORMATIONS -->
+  <h2 class="section-title">Formations</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      title="Diplôme Universitaire d'Analyste Big Data (Paris 5)"
+      summary="Janvier 2018 — Fouille de données, machine learning, cadre réglementaire."
+      icon="school">
+      <p>
+        Formation continue axée sur la pratique : fouille de données,
+        représentation, machine learning, et cadre réglementaire associé
+        aux données personnelles.
+      </p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="E.S.I.E.A — Ingénieur (1989 – 1994)"
+      summary="École Supérieure d'Informatique Électronique et Automatique."
+      icon="history_edu">
+      <p>
+        Diplôme d'ingénieur en 1994. Base solide en informatique, électronique
+        et automatique, qui sert encore aujourd'hui dans la conception
+        d'architectures logicielles et de plateformes data.
+      </p>
+    </app-expandable-card>
+  </div>
+
+  <!-- RÉALISATIONS PERSO -->
+  <h2 class="section-title">Réalisations personnelles</h2>
+  <div class="cards-grid">
+    <app-expandable-card
+      title="Plutar — application de dépôt de message"
+      summary="Front Android, back Java sur Google App Engine, API SFR."
+      icon="android">
+      <p>
+        Application de dépôt de message : front-end Android, back-end Java
+        hébergé sur Google App Engine, intégration des API SFR.
+      </p>
+      <p><a href="https://goo.gl/5oAnl4" target="_blank" rel="noopener">https://goo.gl/5oAnl4</a></p>
+    </app-expandable-card>
+
+    <app-expandable-card
+      title="NeuralVelib4J — prédiction de vélib disponibles"
+      summary="API REST Java + Docker, réseau de neurones sur Spark MLlib."
+      icon="directions_bike">
+      <p>
+        Serveur REST Java disponible sur Docker, reposant sur la librairie
+        de Machine Learning du framework Spark, implémentant un réseau de
+        neurones pour estimer le nombre de Vélib disponibles dans une station.
+      </p>
+      <p><a href="https://github.com/hhoareau/NeuralVelib4J" target="_blank" rel="noopener">github.com/hhoareau/NeuralVelib4J</a></p>
+    </app-expandable-card>
+  </div>
+
+  <!-- APPROCHE -->
   <h2 class="section-title">Notre approche</h2>
-  <app-expandable-card title="Une expertise full-stack"
-                        summary="Front-end Angular 21, back-end Python, bases de données, intégrations cloud."
-                        icon="workspaces">
-    <p>AF10 intervient sur l'ensemble de la chaîne technique : cadrage, design d'interface, développement front et back, intégration, déploiement et exploitation.</p>
-  </app-expandable-card>
+  <div class="cards-grid">
+    <app-expandable-card
+      title="Une expertise full-stack"
+      summary="Front-end Angular 21, back-end Python, données, cloud."
+      icon="workspaces">
+      <p>
+        AF10 intervient sur l'ensemble de la chaîne technique : cadrage,
+        design d'interface, développement front et back, intégration,
+        déploiement et exploitation.
+      </p>
+    </app-expandable-card>
 
-  <app-expandable-card title="Une IA orientée résultats"
-                        summary="L'IA est utilisée là où elle simplifie réellement le travail."
-                        icon="auto_awesome">
-    <p>Recommandation, analyse, génération de réponses, agents autonomes : AF10 intègre l'IA dans des applications métier concrètes plutôt que comme fonctionnalité gadget.</p>
-  </app-expandable-card>
+    <app-expandable-card
+      title="Une IA orientée résultats"
+      summary="L'IA est utilisée là où elle simplifie réellement le travail."
+      icon="auto_awesome">
+      <p>
+        Recommandation, analyse, génération de réponses, agents autonomes :
+        AF10 intègre l'IA dans des applications métier concrètes plutôt que
+        comme fonctionnalité gadget.
+      </p>
+    </app-expandable-card>
 
-  <app-expandable-card title="Un interlocuteur de bout en bout"
-                        summary="Un seul interlocuteur du besoin à la mise en production."
-                        icon="handshake">
-    <p>AF10 privilégie les relations directes et la compréhension fine des processus métier. Le projet est porté en interne sans sous-traitance cachée.</p>
-  </app-expandable-card>
+    <app-expandable-card
+      title="Un interlocuteur de bout en bout"
+      summary="Un seul interlocuteur du besoin à la mise en production."
+      icon="handshake">
+      <p>
+        AF10 privilégie les relations directes et la compréhension fine des
+        processus métier. Le projet est porté en interne sans sous-traitance
+        cachée.
+      </p>
+    </app-expandable-card>
+  </div>
 
+  <!-- VALEURS -->
   <h2 class="section-title">Ce qui nous différencie</h2>
   <div class="cards-grid">
     <app-expandable-card
