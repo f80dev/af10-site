@@ -1,39 +1,30 @@
 @use '../shared' as shared;
 
+// 3D perspective container
 .ec {
   perspective: 1200px;
-}
-
-.ec-inner {
-  position: relative;
-  display: block;
-  width: 100%;
-  min-height: 96px;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-  color: inherit;
-  outline: none;
-
-  &:focus-visible {
-    box-shadow: 0 0 0 2px var(--primary-300);
-    border-radius: var(--radius-lg);
-  }
-}
-
-.ec {
-  border-radius: var(--radius-lg);
-  // outer container gets the card visuals
   background: var(--surface);
   border: 1px solid var(--border);
-  transition: transform .2s ease, box-shadow .2s ease;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background-color .3s ease,
+    border-color .3s ease;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(33, 74, 103, .08);
+  }
+
+  // When the verso is hidden (no projected content), there's nothing
+  // to flip to — drop the front hint indicator and stop signaling.
+  &:has(.ec-back[style*="display: none"]) .ec-front .ec-hint,
+  &:not(:has(.ec-back)) .ec-front .ec-hint {
+    display: none;
   }
 }
 
@@ -42,9 +33,23 @@
 }
 
 .ec-inner {
-  // 3D scene
+  position: relative;
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  outline: none;
   transform-style: preserve-3d;
   transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--primary-300);
+  }
 }
 
 .ec.flipped .ec-inner {
@@ -52,16 +57,14 @@
 }
 
 .ec-face {
-  // both faces stack on top of each other
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   display: flex;
   align-items: flex-start;
   gap: var(--gap-md);
   padding: var(--gap-md) var(--gap-lg);
   width: 100%;
   min-height: 96px;
-  border-radius: var(--radius-lg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .ec-front {
@@ -72,8 +75,16 @@
   position: absolute;
   inset: 0;
   background: var(--surface-2);
-  transform: rotateY(180deg);
   border-left: 3px solid var(--primary-500);
+  transform: rotateY(180deg);
+  padding-top: var(--gap-md);
+  padding-bottom: var(--gap-md);
+
+  // Hide the entire verso when the projected slot is empty.
+  // Without projected content, .ec-back-content has no element children.
+  &:has(> .ec-back-content:not(:has(> *))) {
+    display: none;
+  }
 }
 
 .ec-back-content {
@@ -81,11 +92,16 @@
   color: var(--text);
   font-size: .95rem;
   line-height: 1.55;
-
-  // Override Material cards' default full-width behavior inside the back
   display: flex;
   flex-direction: column;
   gap: 6px;
+  overflow-y: auto;
+  max-height: 280px;
+
+  // Normalize any block content the consumer projects in
+  p { margin: 0; }
+  p + p { margin-top: 4px; }
+  a { color: var(--primary-500); }
 }
 
 .ec-icon {
@@ -157,9 +173,4 @@
   .ec.flipped .ec-inner {
     transform: none;
   }
-  .ec-back { display: none; }
-  .ec.flipped .ec-front { display: none; }
-  .ec:not(.flipped) .ec-back { display: none; }
 }
-
-.ec.no-back .ec-hint { display: none; }

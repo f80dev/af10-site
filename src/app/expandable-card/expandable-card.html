@@ -1,4 +1,4 @@
-<div class="ec" [class.flipped]="open()" [class.no-back]="!hasBack()">
+<div class="ec" [class.flipped]="open()">
   <button type="button"
           class="ec-inner"
           (click)="toggle()"
@@ -12,13 +12,11 @@
         <h3 class="ec-title">{{title}}</h3>
         <p class="ec-summary" *ngIf="summary">{{summary}}</p>
       </div>
-      <span class="ec-hint" aria-hidden="true">
-        <ng-container *ngIf="hasBack()">↻</ng-container>
-      </span>
+      <span class="ec-hint" aria-hidden="true">↻</span>
     </div>
 
     <!-- VERSO (ng-content) -->
-    <div class="ec-face ec-back" *ngIf="hasBack()">
+    <div class="ec-face ec-back">
       <div class="ec-back-content">
         <ng-content></ng-content>
       </div>
