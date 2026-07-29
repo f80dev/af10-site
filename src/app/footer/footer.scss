@@ -1,10 +1,20 @@
 @use '../shared' as shared;
 
+// Footer is intentionally brand-dark in BOTH themes: it is the visual
+// anchor of the page and must stay distinct from the body background.
+// Using a fixed dark color avoids it flipping to a light pastel in
+// dark mode when --primary-900 reverts to the lightest Material stop.
 .footer {
-  background: var(--primary-900);
-  color: rgba(255,255,255,.85);
+  background: #0a1410;  // darker than --bg in light or dark mode
+  color: rgba(255, 255, 255, .85);
   padding: var(--gap-xl) var(--gap-lg) var(--gap-md);
   margin-top: var(--gap-xl);
+  transition: background-color .3s ease;
+}
+
+[data-theme="dark"] .footer,
+[data-theme="dark"] html .footer {
+  background: #060d0a;  // even deeper in dark mode
 }
 
 .footer-grid {
